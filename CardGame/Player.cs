@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CardGame
 {
-    class Player
+    public class Player
     {
         public string Nickname { get; set; }
 

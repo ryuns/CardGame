@@ -7,7 +7,7 @@ using System.Xml.Schema;
 
 namespace CardGame
 {
-    class LuckOfTheDraw : IGame
+    public class LuckOfTheDraw : IGame
     {
         private int numberOfPlayers;
 
@@ -17,11 +17,11 @@ namespace CardGame
             {
                 return numberOfPlayers;
             }
-            set
+            private set
             {
                 if (value > theDeck.Cards.Length)
                 {
-                    throw new Exception("The number of players can not exceed the number of cards");
+                    throw new ArgumentException("The number of players can not exceed the number of cards");
                 }
                 else
                 {
@@ -37,7 +37,7 @@ namespace CardGame
             { 
                 return cardsPerPlayer; 
             }
-            set
+            private set
             {
                 if(value > theDeck.Cards.Length / NumberOfPlayers)
                 {
@@ -74,7 +74,7 @@ namespace CardGame
                     NumberOfPlayers = getValidInt();
                     lValid = true;
                 }
-                catch(Exception e)
+                catch(ArgumentException e)
                 {
                     Console.WriteLine(e.Message);
                 }
@@ -98,7 +98,7 @@ namespace CardGame
 
         public void PlayGame()
         {
-            theDeck.ShuffleDeck();
+            theDeck.Shuffle();
 
             for(int i = 0; i < CardsPerPlayer; i++)
             {
@@ -110,19 +110,7 @@ namespace CardGame
                 }
             }
 
-            Scores = new List<int>();
-            int lHighScore = 0;
-            for(int i = 0; i < NumberOfPlayers; i++)
-            {
-                int lScore = CalculateScore(Players[i]);
-                Scores.Add(lScore);
-
-                if(lScore > lHighScore)
-                {
-                    lHighScore = lScore;
-                }
-            }
-
+            int lHighScore = CalculateHighScore();
             Winners = new List<Player>();
             for(int i = 0; i < Scores.Count; i++)
             {
@@ -149,6 +137,24 @@ namespace CardGame
             }
 
             return lScore;
+        }
+
+        private int CalculateHighScore()
+        {
+            Scores = new List<int>();
+            int lHighScore = 0;
+            for (int i = 0; i < NumberOfPlayers; i++)
+            {
+                int lScore = CalculateScore(Players[i]);
+                Scores.Add(lScore);
+
+                if (lScore > lHighScore)
+                {
+                    lHighScore = lScore;
+                }
+            }
+
+            return lHighScore;
         }
 
         private int getValidInt()

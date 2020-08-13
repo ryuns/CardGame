@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace CardGame
 {
-    class Deck
+    public class Deck
     {
-        private int NumberOfCards = 13;
+        private const int NumberOfCards = 13;
         public Card[] Cards { get; }
 
         public Deck()
         {
             Cards = new Card[52];
-            ConstructDeck();
+            Construct();
         }
 
-        private void ConstructDeck()
+        private void Construct()
         {
             for (int i = 0; i < NumberOfCards; i++)
             {
@@ -29,14 +29,14 @@ namespace CardGame
             }
         }
 
-        public void ResetDeck()
+        public void Reset()
         {
             Array.ForEach(Cards, card => card.Drawn = false);
         }
 
-        public void ShuffleDeck()
+        public void Shuffle()
         {
-            ResetDeck();
+            Reset();
             for (int n = Cards.Length - 1; n > 0; --n)
             {
                 int k = RNG.NextInt(n + 1);

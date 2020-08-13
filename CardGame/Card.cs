@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CardGame
 {
-    class Card
+    public class Card
     {
         public int Value { get; set; }
 
@@ -14,7 +14,7 @@ namespace CardGame
 
         public bool Drawn { get; set; }
 
-        public string theReadableValue
+        private string ReadableValue
         {
             get
             {
@@ -43,7 +43,20 @@ namespace CardGame
 
         public override string ToString()
         {
-            return theReadableValue + " of " + Suit.ToString();
+            return ReadableValue + " of " + Suit.ToString();
+        }
+
+        public override bool Equals(object pObj)
+        {
+            if ((pObj == null) || !GetType().Equals(pObj.GetType()))
+            {
+                return false;
+            }
+            else
+            {
+                Card lCard = (Card)pObj;
+                return (Value == lCard.Value) && (Suit == lCard.Suit);
+            }
         }
     }
 }

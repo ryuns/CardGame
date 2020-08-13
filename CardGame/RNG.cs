@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CardGame
 {
-    class RNG
+    public class RNG
     {
         private static Random rng = new Random();
 

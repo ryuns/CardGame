@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace CardGame
 {
-    interface IGame
+    public interface IGame
     {
-        List<Player> Players { get; }
-
         List<Player> Winners { get; }
 
         void PlayGame();

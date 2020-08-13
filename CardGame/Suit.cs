@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CardGame
 {
-    enum Suit
+    public enum Suit
     {
         Hearts,
         Diamonds,

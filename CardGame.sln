@@ -5,6 +5,11 @@ VisualStudioVersion = 16.0.30330.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardGame", "CardGame\CardGame.csproj", "{776E49F6-4ED5-4B51-8CBC-12735A436BAA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardGameTests", "CardGameTests\CardGameTests.csproj", "{81066796-E420-4465-8474-CA942C936076}"
+	ProjectSection(ProjectDependencies) = postProject
+		{776E49F6-4ED5-4B51-8CBC-12735A436BAA} = {776E49F6-4ED5-4B51-8CBC-12735A436BAA}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +20,10 @@ Global
 		{776E49F6-4ED5-4B51-8CBC-12735A436BAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{776E49F6-4ED5-4B51-8CBC-12735A436BAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{776E49F6-4ED5-4B51-8CBC-12735A436BAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81066796-E420-4465-8474-CA942C936076}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81066796-E420-4465-8474-CA942C936076}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81066796-E420-4465-8474-CA942C936076}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81066796-E420-4465-8474-CA942C936076}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
